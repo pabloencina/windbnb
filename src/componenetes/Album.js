@@ -1,7 +1,7 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
-import CameraIcon from '@mui/icons-material/PhotoCamera';
+//import CameraIcon from '@mui/icons-material/PhotoCamera';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -57,9 +57,9 @@ export default function Album() {
       <CssBaseline />
       <AppBar position="relative">
         <Toolbar>
-          <CameraIcon sx={{ mr: 2 }} />
+          <img src={require(`../imagenes-logos/windbnb-master/logo.png`)} alt='logo'/>
           <Typography variant="h6" color="inherit" noWrap>
-            Album layout
+            
           </Typography>
           <ComboBox className='autoCompletar'></ComboBox>
         </Toolbar>
@@ -84,7 +84,7 @@ export default function Album() {
               
             </Typography>
             <Typography variant="h5" align="center" color="text.secondary" paragraph>
-              
+              Stays
             </Typography>
             <Stack
               sx={{ pt: 4 }}
@@ -110,7 +110,7 @@ export default function Album() {
                     component="img"
                     sx={{
                       // 16:9
-                      pt: '56.25%',
+                      pt: '0%',
                     }}
                     image={elem.photo}
                     
