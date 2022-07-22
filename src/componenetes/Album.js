@@ -20,6 +20,7 @@ import '../estilos-css/Autocompletar.css'
 import { v4 as uuidv4 } from "uuid";
 import { FaStar } from "react-icons/fa";
 import '../estilos-css/Album.css'
+import SearchAppBar from './Busqueda'
 
 function Copyright() {
   return (
@@ -55,13 +56,14 @@ export default function Album() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <AppBar position="relative">
+      <AppBar position="relative" className='navbar'>
         <Toolbar>
-          <img src={require(`../imagenes-logos/windbnb-master/logo.png`)} alt='logo'/>
+          <img className='logo' src={require(`../imagenes-logos/windbnb-master/logo.png`)} alt='logo'/>
           <Typography variant="h6" color="inherit" noWrap>
             
           </Typography>
           <ComboBox className='autoCompletar'></ComboBox>
+          <SearchAppBar/>
         </Toolbar>
       </AppBar>
       <main>
