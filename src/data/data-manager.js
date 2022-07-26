@@ -1,5 +1,6 @@
 import { dataArray } from "./data";
 
+
 export function getAllStays() {
   return dataArray;
 }
@@ -14,7 +15,7 @@ export function getAllLocations() {
       });
     }
   });
-  return locations;
+  return  locations;
 }
 
 export function getStaysByLocation(location) {}

@@ -17,12 +17,14 @@ import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import ComboBox from './Autocompletar';
 import '../estilos-css/Autocompletar.css'
-import { v4 as uuidv4 } from "uuid";
 import { FaStar } from "react-icons/fa";
 import '../estilos-css/Album.css'
 import SearchAppBar from './Busqueda'
+import {getAllStays} from '../data/data-manager'
+import BasicButtons from '../componenetes/SuperHosts'
 
 function Copyright() {
+
   return (
     <Typography variant="body2" color="text.secondary" align="center">
       {'Copyright © '}
@@ -52,6 +54,7 @@ const theme = createTheme({
 
 export default function Album() {
 
+  const allStays = getAllStays();
 
   return (
     <ThemeProvider theme={theme}>
@@ -101,8 +104,8 @@ export default function Album() {
         <Container sx={{ py: 8 }} className='contenedor'>
           {/* End hero unit */}
           <Grid container spacing={4}>
-            {array.map((elem) => (
-              <Grid item key={elem} xs={12} sm={6} md={4}>
+            {allStays.map((elem) => (
+              <Grid item key={elem.id} xs={12} sm={6} md={4}>
                 <Card
                   sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
                 >
@@ -120,6 +123,7 @@ export default function Album() {
                   />
                   <CardContent sx={{ flexGrow: 1 }}>
                     <Typography gutterBottom variant="h6" component="h1" className='type'>
+                      <BasicButtons />
                       {elem.type }
                       <FaStar className='icons'></FaStar>{elem.rating}
                     </Typography>
@@ -156,6 +160,8 @@ export default function Album() {
     </ThemeProvider>
   );
 }
+
+/*
 const array = [
   {
       id:uuidv4(),
@@ -325,4 +331,4 @@ const array = [
     beds: 3,
     photo: "https://images.unsplash.com/photo-1523755231516-e43fd2e8dca5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1275&q=80"
   }
-];
+];*/
