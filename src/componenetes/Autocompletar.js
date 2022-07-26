@@ -6,9 +6,7 @@ import Stack from "@mui/material/Stack";
 import Autocomplete from "@mui/material/Autocomplete";
 import { getAllLocations } from "../data/data-manager";
 import Box from "@mui/material/Box";
-//import { Button } from "@mui/material";
-//import BadgeVisibility from "./CantidadGuests";
-//import LocationOnIcon from '@material-ui/icons/LocationOn';
+import Guests from "./CantidadGuests";
 import { FaSearchLocation } from "react-icons/fa";
 
 export default function FreeSolo() {
@@ -34,6 +32,7 @@ export default function FreeSolo() {
               {...props}
             >
               <FaSearchLocation color="#EB5757" />
+              
               {option.city}, {option.country}
             </Box>
           )}
@@ -46,16 +45,19 @@ export default function FreeSolo() {
           Add
           Guests
           id="free-solo-2-demo"
-          options={allLocations.map((item) => item.city + ", " + item.country)}
+          options={allLocations}
+          getOptionLabel={(option) => `${option.city}, ${option.country}`}
+          renderOption={() => (
+            <Box
+              
+            >
+              
+              <Guests />
+              
+            </Box>
+          )}
           renderInput={(params) => (
-            <TextField
-              {...params}
-              label="Add Guests"
-              InputProps={{
-                ...params.InputProps,
-                type: "search",
-              }}
-            />
+            <TextField {...params} label="Location" className="autoCompletar" />
           )}
         />
       </Stack>
