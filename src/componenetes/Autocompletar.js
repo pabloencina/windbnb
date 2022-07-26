@@ -21,7 +21,6 @@ export default function FreeSolo() {
       >
         <Autocomplete
           id="free-solo-demo"
-          
           Location
           options={allLocations}
           getOptionLabel={(option) => `${option.city}, ${option.country}`}
@@ -45,19 +44,15 @@ export default function FreeSolo() {
           Add
           Guests
           id="free-solo-2-demo"
-          options={allLocations}
-          getOptionLabel={(option) => `${option.city}, ${option.country}`}
+          options={[{a:'b'}]}
+          getOptionLabel={(option) => `${option.a}`}
           renderOption={() => (
-            <Box
-              
-            >
-              
+            <Box>
               <Guests />
-              
             </Box>
           )}
           renderInput={(params) => (
-            <TextField {...params} label="Location" className="autoCompletar" />
+            <TextField {...params} label="Add guests" className="autoCompletar" />
           )}
         />
       </Stack>
