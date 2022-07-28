@@ -1,6 +1,7 @@
 import React from "react";
 import "../estilos-css/CantidadGuests.css";
 import { useState } from "react";
+import DoDisturbAltOutlinedIcon from "@mui/icons-material/DoDisturbAltOutlined";
 
 const Guests = () => {
   const [numclicks, setNumClicks] = useState(0);
@@ -11,7 +12,11 @@ const Guests = () => {
   };
 
   const manejarClickEnDisminucionAdult = () => {
-    setNumClicks(numclicks - 1);
+    if (numclicks > 0) {
+      setNumClicks(numclicks - 1);
+    } else {
+      <DoDisturbAltOutlinedIcon />;
+    }
   };
 
   const manejarClickEnAumentoChild = () => {
@@ -19,11 +24,14 @@ const Guests = () => {
   };
 
   const manejarClickEnDisminucionChild = () => {
-    setNumClicksChild(numclicksChild - 1);
+    if (numclicksChild > 0) {
+      setNumClicksChild(numclicksChild - 1);
+    } else {
+      <DoDisturbAltOutlinedIcon />;
+    }
   };
 
   return (
-
     <>
       <div className="container">
         <div className="containerText">
@@ -31,12 +39,20 @@ const Guests = () => {
           <h6>Ages 13 or above</h6>
         </div>
         <div className="containerBtn">
-          <button id="btnAumentar" className="btnGuests" onClick={manejarClickEnDisminucionAdult}>
+          <button
+            id="btnAumentar"
+            className="btnGuests"
+            onClick={manejarClickEnDisminucionAdult}
+          >
             {" "}
             -{" "}
           </button>
           {numclicks}
-          <button id="btnDisminuir" className="btnGuests" onClick={manejarClickEnAumentoAdult}>
+          <button
+            id="btnDisminuir"
+            className="btnGuests"
+            onClick={manejarClickEnAumentoAdult}
+          >
             {" "}
             +{" "}
           </button>
@@ -46,12 +62,20 @@ const Guests = () => {
           <h6>Ages 2-12</h6>
         </div>
         <div className="containerBtn">
-          <button id="btnAumentar" className="btnGuests" onClick={manejarClickEnDisminucionChild}>
+          <button
+            id="btnAumentar"
+            className="btnGuests"
+            onClick={manejarClickEnDisminucionChild}
+          >
             {" "}
             -{" "}
           </button>
           {numclicksChild}
-          <button id="btnDisminuir" className="btnGuests" onClick={manejarClickEnAumentoChild}>
+          <button
+            id="btnDisminuir"
+            className="btnGuests"
+            onClick={manejarClickEnAumentoChild}
+          >
             {" "}
             +{" "}
           </button>

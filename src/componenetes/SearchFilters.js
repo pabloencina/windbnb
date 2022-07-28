@@ -1,17 +1,16 @@
 import * as React from "react";
-//import { v4 as uuidv4 } from "uuid";
-import "../estilos-css/Autocompletar.css";
+import "../estilos-css/SearchFilters.css";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import Autocomplete from "@mui/material/Autocomplete";
 import { getAllLocations } from "../data/data-manager";
 import Box from "@mui/material/Box";
 import Guests from "./CantidadGuests";
-import { FaSearchLocation } from "react-icons/fa";
+import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 
-export default function FreeSolo() {
+export default function SearchFilters() {
   const allLocations = getAllLocations();
-  // .map((item) => item.city + ", " + item.country)
+  
   return (
     <div id="contenedorInp">
       <Stack
@@ -30,7 +29,7 @@ export default function FreeSolo() {
               sx={{ "& > img": { mr: 2, flexShrink: 0 } }}
               {...props}
             >
-              <FaSearchLocation color="#EB5757" />
+              <LocationOnOutlinedIcon />
               
               {option.city}, {option.country}
             </Box>
@@ -53,6 +52,7 @@ export default function FreeSolo() {
           )}
           renderInput={(params) => (
             <TextField {...params} label="Add guests" className="autoCompletar" />
+            
           )}
         />
       </Stack>
