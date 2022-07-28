@@ -5,18 +5,18 @@ import Stack from "@mui/material/Stack";
 import Autocomplete from "@mui/material/Autocomplete";
 import { getAllLocations } from "../data/data-manager";
 import Box from "@mui/material/Box";
-import Guests from "./CantidadGuests";
+import NumberOfGuests from "./NumberOfGuests";
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 
-export default function SearchFilters() {
+export default function SearchFilters({whidthExpander}) {
   const allLocations = getAllLocations();
   
   return (
     <div id="contenedorInp">
       <Stack
-        className="contenedorAutocompletar"
+        className={whidthExpander ? "contenedorAutocompletarExpander" : "contenedorAutocompletar"}
         spacing={2}
-        sx={{ width: 300 }}
+        
       >
         <Autocomplete
           id="free-solo-demo"
@@ -47,7 +47,7 @@ export default function SearchFilters() {
           getOptionLabel={(option) => `${option.a}`}
           renderOption={() => (
             <Box>
-              <Guests />
+              < NumberOfGuests/>
             </Box>
           )}
           renderInput={(params) => (

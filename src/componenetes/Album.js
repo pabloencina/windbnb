@@ -50,7 +50,7 @@ const theme = createTheme({
   },
 });
 
-export default function Album() {
+export default function Album({whidthExpander}) {
   const allStays = getAllStays();
 
   return (
@@ -64,7 +64,7 @@ export default function Album() {
             alt="logo"
           />
           <Typography variant="h6" color="inherit" noWrap></Typography>
-          <SearchFilters className="autoCompletar"></SearchFilters>
+          <SearchFilters className={whidthExpander}></SearchFilters>
           <SearchButton />
         </Toolbar>
       </AppBar>

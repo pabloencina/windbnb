@@ -1,17 +1,17 @@
 import React from "react";
-import "../estilos-css/CantidadGuests.css";
+import "../estilos-css/NumberOfGuests.css";
 import { useState } from "react";
 import DoDisturbAltOutlinedIcon from "@mui/icons-material/DoDisturbAltOutlined";
 
-const Guests = () => {
+const NumberOfGuests = () => {
   const [numclicks, setNumClicks] = useState(0);
   const [numclicksChild, setNumClicksChild] = useState(0);
 
-  const manejarClickEnAumentoAdult = () => {
+  const handleClickAumentAdult = () => {
     setNumClicks(numclicks + 1);
   };
 
-  const manejarClickEnDisminucionAdult = () => {
+  const handleClickDisminutionAdult = () => {
     if (numclicks > 0) {
       setNumClicks(numclicks - 1);
     } else {
@@ -19,11 +19,11 @@ const Guests = () => {
     }
   };
 
-  const manejarClickEnAumentoChild = () => {
+  const handleClickAumentChild = () => {
     setNumClicksChild(numclicksChild + 1);
   };
 
-  const manejarClickEnDisminucionChild = () => {
+  const handleClickDisminutionChild = () => {
     if (numclicksChild > 0) {
       setNumClicksChild(numclicksChild - 1);
     } else {
@@ -42,7 +42,7 @@ const Guests = () => {
           <button
             id="btnAumentar"
             className="btnGuests"
-            onClick={manejarClickEnDisminucionAdult}
+            onClick={handleClickDisminutionAdult}
           >
             {" "}
             -{" "}
@@ -51,7 +51,7 @@ const Guests = () => {
           <button
             id="btnDisminuir"
             className="btnGuests"
-            onClick={manejarClickEnAumentoAdult}
+            onClick={handleClickAumentAdult}
           >
             {" "}
             +{" "}
@@ -65,7 +65,7 @@ const Guests = () => {
           <button
             id="btnAumentar"
             className="btnGuests"
-            onClick={manejarClickEnDisminucionChild}
+            onClick={handleClickDisminutionChild}
           >
             {" "}
             -{" "}
@@ -74,7 +74,7 @@ const Guests = () => {
           <button
             id="btnDisminuir"
             className="btnGuests"
-            onClick={manejarClickEnAumentoChild}
+            onClick={handleClickAumentChild}
           >
             {" "}
             +{" "}
@@ -85,4 +85,4 @@ const Guests = () => {
   );
 };
 
-export default Guests;
+export default NumberOfGuests;
