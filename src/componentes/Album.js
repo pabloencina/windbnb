@@ -1,6 +1,5 @@
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
-import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -20,7 +19,7 @@ import { FaStar } from "react-icons/fa";
 import "../estilos-css/Album.css";
 import SearchButton from "../componentes/SearchButton";
 import { getAllStays } from "../data/data-manager";
-//import BasicButtons from '../componenetes/SuperHosts'
+import SuperHost from '../componentes/SuperHosts'
 
 function Copyright() {
   return (
@@ -123,6 +122,7 @@ export default function Album() {
                     alt="imagenes"
                   />
                   <CardContent sx={{ flexGrow: 1 }}>
+                    <SuperHost/>
                     <Typography
                       gutterBottom
                       variant="h6"
@@ -138,8 +138,7 @@ export default function Album() {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button size="small">View</Button>
-                    <Button size="small">Edit</Button>
+                    
                   </CardActions>
                 </Card>
               </Grid>
