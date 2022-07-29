@@ -14,11 +14,11 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Link from "@mui/material/Link";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import SearchFilters from "./SearchFilters";
+import SearchFilters from "../componentes/SearchFilters";
 import "../estilos-css/SearchFilters.css";
 import { FaStar } from "react-icons/fa";
 import "../estilos-css/Album.css";
-import SearchButton from "./SearchButton";
+import SearchButton from "../componentes/SearchButton";
 import { getAllStays } from "../data/data-manager";
 //import BasicButtons from '../componenetes/SuperHosts'
 
@@ -35,8 +35,6 @@ function Copyright() {
   );
 }
 
-//const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-
 const theme = createTheme({
   palette: {
     primary: {
@@ -50,7 +48,7 @@ const theme = createTheme({
   },
 });
 
-export default function Album({whidthExpander}) {
+export default function Album() {
   const allStays = getAllStays();
 
   return (
@@ -64,7 +62,7 @@ export default function Album({whidthExpander}) {
             alt="logo"
           />
           <Typography variant="h6" color="inherit" noWrap></Typography>
-          <SearchFilters className={whidthExpander}></SearchFilters>
+          <SearchFilters whidthExpander="contenedorAutocompletar"></SearchFilters>
           <SearchButton />
         </Toolbar>
       </AppBar>

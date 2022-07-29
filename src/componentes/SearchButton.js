@@ -1,6 +1,5 @@
 import React from "react";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
-import SearchFilters from "./SearchFilters";
 import "../estilos-css/SearchButton.css";
 import { useState } from "react";
 
@@ -8,19 +7,18 @@ const SearchButton = ({whidthExpander}) => {
   console.log(whidthExpander)
   const [style, setStyle] = useState("btnSearch");
   const [buttonText, setButtonText] = useState("");
-  //const [width, setWidth] = useState( 'width: 300')
 
-  const changeStyle = () => {
-    // appBarExpanded = true
+    const changeStyle = () => {
+     whidthExpander = ''
 
     if (style === "btnSearch") {
       setStyle("btnSearch2");
       setButtonText("Search");
-      <SearchFilters whidthExpander = {"contenedorAutocompletarExpander"}/>;
+      whidthExpander = 'contenedorAutocompletarExpander'
     } else {
       setStyle("btnSearch");
       setButtonText("");
-      <SearchFilters whidthExpander = {"contenedorAutocompletar"}/>;
+      whidthExpander = 'contenedorAutocompletar'
     }
   };
 

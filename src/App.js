@@ -1,4 +1,4 @@
-import Album from './componenetes/Album';
+import Album from './componentes/Album';
 import './App.css';
 
 function App() {

@@ -7,16 +7,18 @@ import { getAllLocations } from "../data/data-manager";
 import Box from "@mui/material/Box";
 import NumberOfGuests from "./NumberOfGuests";
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
+//import {changeStyle} from '../componentes/SearchButton'
 
-export default function SearchFilters({whidthExpander}) {
+export default function SearchFilters(whidthExpander) {
   const allLocations = getAllLocations();
+  //const changeWidth = changeStyle()
   
   return (
     <div id="contenedorInp">
       <Stack
-        className={whidthExpander ? "contenedorAutocompletarExpander" : "contenedorAutocompletar"}
+        className = {whidthExpander ? "contenedorAutocompletar" : "contenedorAutocompletarExpander"}
         spacing={2}
-        
+        //width={changeWidth ? "contenedorAutocompletar" : "contenedorAutocompletarExpander"}
       >
         <Autocomplete
           id="free-solo-demo"
