@@ -122,7 +122,7 @@ export default function Album() {
                     alt="imagenes"
                   />
                   <CardContent sx={{ flexGrow: 1 }}>
-                    <SuperHost/>
+                    <SuperHost visibility={elem.superHost} />
                     <Typography
                       gutterBottom
                       variant="h6"
