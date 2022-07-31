@@ -1,25 +1,22 @@
-import * as React from "react";
-import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
+import Container from "@mui/material/Container";
 import CssBaseline from "@mui/material/CssBaseline";
 import Grid from "@mui/material/Grid";
-import Stack from "@mui/material/Stack";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
 import Link from "@mui/material/Link";
+import Stack from "@mui/material/Stack";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import SearchFilters from "../componentes/SearchFilters";
-import "../estilos-css/SearchFilters.css";
+import Typography from "@mui/material/Typography";
+import * as React from "react";
 import { FaStar } from "react-icons/fa";
-import "../estilos-css/Album.css";
-import SearchButton from "../componentes/SearchButton";
+import SuperHost from '../componentes/SuperHosts';
 import { getAllStays } from "../data/data-manager";
-import SuperHost from '../componentes/SuperHosts'
+import "../estilos-css/Album.css";
+import "../estilos-css/SearchFilters.css";
+import SearchAppBar from "./SearchAppBar";
 
 function Copyright() {
   return (
@@ -53,18 +50,7 @@ export default function Album() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <AppBar position="relative" className="navbar">
-        <Toolbar>
-          <img
-            className="logo"
-            src={require(`../imagenes-logos/windbnb-master/logo.png`)}
-            alt="logo"
-          />
-          <Typography variant="h6" color="inherit" noWrap></Typography>
-          <SearchFilters whidthExpander="contenedorAutocompletar"></SearchFilters>
-          <SearchButton />
-        </Toolbar>
-      </AppBar>
+      <SearchAppBar></SearchAppBar>
       <main>
         {/* Hero unit */}
         <Box

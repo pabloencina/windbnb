@@ -1,31 +1,31 @@
-.btnSearch{
+.btnSearchContracted{
     background-color: #EB5757;
-    border-radius: 30%;
+    border-radius: 10% 30% 30% 10%;
     color: white;
     border: 1px solid #EB5757;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 50px;
-    height: 50px;
+    height: 55px;
 }
 
-.btnSearch:hover{
+.btnSearchContracted:hover{
     cursor: pointer;
     background-color: white;
     color: #EB5757;
 }
-.btnSearch2{
+.btnSearchExpanded{
     width: 150px;
     height: 50px;
     background-color: #EB5757;
-    border-radius: 10%;
+    border-radius: 5%;
     border: 1px solid #EB5757;
     color:white;
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
-.btnSearch2:hover{
+.btnSearchExpanded:hover{
     cursor: pointer;
 }

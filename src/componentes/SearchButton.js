@@ -1,24 +1,20 @@
-import React from "react";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+import React, { useState } from "react";
 import "../estilos-css/SearchButton.css";
-import { useState } from "react";
 
-const SearchButton = ({whidthExpander}) => {
-  console.log(whidthExpander)
-  const [style, setStyle] = useState("btnSearch");
+const SearchButton = ({ expanded, setExpanded }) => {
+  const [style, setStyle] = useState("btnSearchContracted");
   const [buttonText, setButtonText] = useState("");
 
-    const changeStyle = () => {
-     whidthExpander = ''
-
-    if (style === "btnSearch") {
-      setStyle("btnSearch2");
-      setButtonText("Search");
-      whidthExpander = 'contenedorAutocompletarExpander'
-    } else {
-      setStyle("btnSearch");
+  const changeStyle = () => {
+    if (expanded) {
+      setExpanded(false);
+      setStyle("btnSearchContracted");
       setButtonText("");
-      whidthExpander = 'contenedorAutocompletar'
+    } else {
+      setExpanded(true);
+      setStyle("btnSearchExpanded");
+      setButtonText("Search");
     }
   };
 

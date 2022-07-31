@@ -1,25 +1,20 @@
-import * as React from "react";
-import "../estilos-css/SearchFilters.css";
-import TextField from "@mui/material/TextField";
-import Stack from "@mui/material/Stack";
+import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import Autocomplete from "@mui/material/Autocomplete";
-import { getAllLocations } from "../data/data-manager";
 import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import * as React from "react";
+import { getAllLocations } from "../data/data-manager";
+import "../estilos-css/SearchFilters.css";
 import NumberOfGuests from "./NumberOfGuests";
-import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 //import {changeStyle} from '../componentes/SearchButton'
 
-export default function SearchFilters(whidthExpander) {
+export default function SearchFilters() {
   const allLocations = getAllLocations();
   //const changeWidth = changeStyle()
-  
+
   return (
     <div id="contenedorInp">
-      <Stack
-        className = {whidthExpander ? "contenedorAutocompletar" : "contenedorAutocompletarExpander"}
-        spacing={2}
-        //width={changeWidth ? "contenedorAutocompletar" : "contenedorAutocompletarExpander"}
-      >
+      <Box className="contenedorAutocompletar">
         <Autocomplete
           id="free-solo-demo"
           Location
@@ -32,7 +27,6 @@ export default function SearchFilters(whidthExpander) {
               {...props}
             >
               <LocationOnOutlinedIcon />
-              
               {option.city}, {option.country}
             </Box>
           )}
@@ -40,24 +34,28 @@ export default function SearchFilters(whidthExpander) {
             <TextField {...params} label="Location" className="autoCompletar" />
           )}
         />
-
+        <br></br>
+        <br></br>
         <Autocomplete
           Add
           Guests
           id="free-solo-2-demo"
-          options={[{a:'b'}]}
+          options={[{ a: "b" }]}
           getOptionLabel={(option) => `${option.a}`}
           renderOption={() => (
             <Box>
-              < NumberOfGuests/>
+              <NumberOfGuests />
             </Box>
           )}
           renderInput={(params) => (
-            <TextField {...params} label="Add guests" className="autoCompletar" />
-            
+            <TextField
+              {...params}
+              label="Add guests"
+              className="autoCompletar"
+            />
           )}
         />
-      </Stack>
+      </Box>
     </div>
   );
 }
