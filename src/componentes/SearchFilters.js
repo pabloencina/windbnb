@@ -6,16 +6,17 @@ import * as React from "react";
 import { getAllLocations } from "../data/data-manager";
 import "../estilos-css/SearchFilters.css";
 import NumberOfGuests from "./NumberOfGuests";
-//import {changeStyle} from '../componentes/SearchButton'
 
-export default function SearchFilters() {
+export default function SearchFilters({ userSearchFilters, setUserSearchFilters }) {
+  
+
   const allLocations = getAllLocations();
-  //const changeWidth = changeStyle()
-
+  const [value, setValue] = React.useState(userSearchFilters.location);
   return (
     <div id="contenedorInp">
       <Box className="contenedorAutocompletar">
         <Autocomplete
+          value={value}
           id="free-solo-demo"
           Location
           options={allLocations}
@@ -33,9 +34,15 @@ export default function SearchFilters() {
           renderInput={(params) => (
             <TextField {...params} label="Location" className="autoCompletar" />
           )}
+          onChange={(event, newValue) => {
+            setValue(newValue);
+            setUserSearchFilters({
+              ...userSearchFilters,
+              location: newValue
+            });
+          }}
         />
-        <br></br>
-        <br></br>
+
         <Autocomplete
           Add
           Guests
@@ -59,3 +66,12 @@ export default function SearchFilters() {
     </div>
   );
 }
+
+/*
+setUserSearchFilters={setUserSearchFilters({
+                location:{
+                  city:`${option.city}`,
+                  country:`${option.country}`
+                }
+              })}
+*/

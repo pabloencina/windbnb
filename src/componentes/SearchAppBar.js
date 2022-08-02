@@ -5,6 +5,7 @@ import * as React from "react";
 import { useState } from "react";
 import SearchButton from "../componentes/SearchButton";
 import SearchFilters from "../componentes/SearchFilters";
+import { getAllLocations } from "../data/data-manager";
 import "../estilos-css/Album.css";
 import "../estilos-css/SearchAppBar.css";
 import "../estilos-css/SearchFilters.css";
@@ -12,13 +13,11 @@ import SearchLabels from "./SearchLabels";
 //setUserSearchFilters
 
 export default function SearchAppBar() {
+  const allLocations = getAllLocations();
   const [expanded, setExpanded] = useState(false);
-  const [userSearchFilters] = useState({
-    location: {
-      city: "Cordoba",
-      country: "Argentina",
-    },
-    guests: 0,
+  const [userSearchFilters, setUserSearchFilters] = useState({
+    location: allLocations[0],
+    guests: 2,
   });
 
   return (
@@ -34,7 +33,10 @@ export default function SearchAppBar() {
         />
         <Typography variant="h6" color="inherit" noWrap></Typography>
         {expanded ? (
-          <SearchFilters ></SearchFilters>
+          <SearchFilters
+            userSearchFilters={userSearchFilters}
+            setUserSearchFilters={setUserSearchFilters}
+          ></SearchFilters>
         ) : (
           <SearchLabels userSearchFilters={userSearchFilters}></SearchLabels>
         )}
@@ -44,4 +46,3 @@ export default function SearchAppBar() {
     </AppBar>
   );
 }
-// <SearchButton expanded={expanded} setExpanded={setExpanded} />

@@ -11,6 +11,7 @@ const SearchButton = ({ expanded, setExpanded }) => {
       setExpanded(false);
       setStyle("btnSearchContracted");
       setButtonText("");
+      
     } else {
       setExpanded(true);
       setStyle("btnSearchExpanded");
