@@ -12,11 +12,13 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
 import { FaStar } from "react-icons/fa";
-import SuperHost from '../componentes/SuperHosts';
+import SuperHost from "../componentes/SuperHosts";
 import { getAllStays } from "../data/data-manager";
 import "../estilos-css/Album.css";
 import "../estilos-css/SearchFilters.css";
 import SearchAppBar from "./SearchAppBar";
+import Title from "./Title";
+//import SearchLabels from "./SearchLabels";
 
 function Copyright() {
   return (
@@ -44,7 +46,7 @@ const theme = createTheme({
   },
 });
 
-export default function Album() {
+export default function Album({userSearchFilters}) {
   const allStays = getAllStays();
 
   return (
@@ -61,21 +63,8 @@ export default function Album() {
           }}
         >
           <Container maxWidth="sm">
-            <Typography
-              component="h1"
-              variant="h2"
-              align="center"
-              color="text.primary"
-              gutterBottom
-            ></Typography>
-            <Typography
-              variant="h5"
-              align="center"
-              color="text.secondary"
-              paragraph
-            >
-              Stays
-            </Typography>
+          
+            <Title userSearchFilters={userSearchFilters}></Title>
             <Stack
               sx={{ pt: 4 }}
               direction="row"
@@ -123,9 +112,7 @@ export default function Album() {
                       {elem.title}
                     </Typography>
                   </CardContent>
-                  <CardActions>
-                    
-                  </CardActions>
+                  <CardActions></CardActions>
                 </Card>
               </Grid>
             ))}

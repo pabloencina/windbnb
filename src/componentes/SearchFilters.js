@@ -5,7 +5,7 @@ import TextField from "@mui/material/TextField";
 import * as React from "react";
 import { getAllLocations } from "../data/data-manager";
 import "../estilos-css/SearchFilters.css";
-//import NumberOfGuests from "./NumberOfGuests";
+
 
 export default function SearchFilters({
   userSearchFilters,
@@ -48,15 +48,7 @@ export default function SearchFilters({
             });
           }}
         />
-        {/* <Box
-          className="boxTextField"
-          component="form"
-          sx={{
-            "& .MuiTextField-root": { m: 1, width: "25ch" },
-          }}
-          noValidate
-          autoComplete="off"
-        > */}
+        
           <TextField
             id="standard-number"
             className="autoCompletar"
@@ -67,7 +59,6 @@ export default function SearchFilters({
               shrink: true,
             }}
             onChange={(event) => {
-              console.log(event.target.value);
               setGuestsValue(event.target.value);
               setUserSearchFilters({
                 ...userSearchFilters,
@@ -75,7 +66,7 @@ export default function SearchFilters({
               });
             }}
           />
-        {/* </Box> */}
+
       </Box>
     </div>
   );
