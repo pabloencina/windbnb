@@ -19,6 +19,15 @@
     box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
     border: white;
 }
+#standard-number{
+    width: 400px;
+
+}
+.boxTextField{
+    margin-left: 30%;
+    
+    
+}
 #free-solo-2-demo{
     width: 400px;
     display: flex;

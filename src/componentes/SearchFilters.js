@@ -5,18 +5,24 @@ import TextField from "@mui/material/TextField";
 import * as React from "react";
 import { getAllLocations } from "../data/data-manager";
 import "../estilos-css/SearchFilters.css";
-import NumberOfGuests from "./NumberOfGuests";
+//import NumberOfGuests from "./NumberOfGuests";
 
-export default function SearchFilters({ userSearchFilters, setUserSearchFilters }) {
-  
-
+export default function SearchFilters({
+  userSearchFilters,
+  setUserSearchFilters,
+}) {
   const allLocations = getAllLocations();
-  const [value, setValue] = React.useState(userSearchFilters.location);
+  const [locationValue, setLocationValue] = React.useState(
+    userSearchFilters.location
+  );
+  const [guestsValue, setGuestsValue] = React.useState(
+    userSearchFilters.guests
+  );
   return (
     <div id="contenedorInp">
       <Box className="contenedorAutocompletar">
         <Autocomplete
-          value={value}
+          value={locationValue}
           id="free-solo-demo"
           Location
           options={allLocations}
@@ -35,15 +41,48 @@ export default function SearchFilters({ userSearchFilters, setUserSearchFilters 
             <TextField {...params} label="Location" className="autoCompletar" />
           )}
           onChange={(event, newValue) => {
-            setValue(newValue);
+            setLocationValue(newValue);
             setUserSearchFilters({
               ...userSearchFilters,
-              location: newValue
+              location: newValue,
             });
           }}
         />
+        {/* <Box
+          className="boxTextField"
+          component="form"
+          sx={{
+            "& .MuiTextField-root": { m: 1, width: "25ch" },
+          }}
+          noValidate
+          autoComplete="off"
+        > */}
+          <TextField
+            id="standard-number"
+            className="autoCompletar"
+            label="Guests"
+            type="number"
+            value={guestsValue}
+            InputLabelProps={{
+              shrink: true,
+            }}
+            onChange={(event) => {
+              console.log(event.target.value);
+              setGuestsValue(event.target.value);
+              setUserSearchFilters({
+                ...userSearchFilters,
+                guests: event.target.value,
+              });
+            }}
+          />
+        {/* </Box> */}
+      </Box>
+    </div>
+  );
+}
 
-        <Autocomplete
+/*
+<Autocomplete
           Add
           Guests
           id="free-solo-2-demo"
@@ -51,7 +90,7 @@ export default function SearchFilters({ userSearchFilters, setUserSearchFilters 
           getOptionLabel={(option) => `${option.a}`}
           renderOption={() => (
             <Box>
-              <NumberOfGuests />
+              
             </Box>
           )}
           renderInput={(params) => (
@@ -62,16 +101,4 @@ export default function SearchFilters({ userSearchFilters, setUserSearchFilters 
             />
           )}
         />
-      </Box>
-    </div>
-  );
-}
-
-/*
-setUserSearchFilters={setUserSearchFilters({
-                location:{
-                  city:`${option.city}`,
-                  country:`${option.country}`
-                }
-              })}
 */
