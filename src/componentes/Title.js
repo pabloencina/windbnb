@@ -14,7 +14,7 @@ const Title = () => {
     variant="h5" 
     align="center" 
     color="text.secondary">
-      Stay {userSearchFilters.location.city }s
+      Stay {userSearchFilters.location.city }
       {setUserSearchFilters}
     </Typography>
   );

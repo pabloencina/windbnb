@@ -18,4 +18,6 @@ export function getAllLocations() {
   return  locations;
 }
 
-export function getStaysByLocation(location) {}
+export function getStaysByLocation(location) {
+  
+}

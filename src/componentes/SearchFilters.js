@@ -51,7 +51,7 @@ export default function SearchFilters({
         
           <TextField
             id="standard-number"
-            className="autoCompletar"
+            className="autoCompletarGuests"
             label="Guests"
             type="number"
             value={guestsValue}
@@ -71,25 +71,3 @@ export default function SearchFilters({
     </div>
   );
 }
-
-/*
-<Autocomplete
-          Add
-          Guests
-          id="free-solo-2-demo"
-          options={[{ a: "b" }]}
-          getOptionLabel={(option) => `${option.a}`}
-          renderOption={() => (
-            <Box>
-              
-            </Box>
-          )}
-          renderInput={(params) => (
-            <TextField
-              {...params}
-              label="Add guests"
-              className="autoCompletar"
-            />
-          )}
-        />
-*/

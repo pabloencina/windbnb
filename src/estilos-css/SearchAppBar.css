@@ -2,10 +2,9 @@
     height: 250px;
     display: flex;
     justify-content: center;
-   
 }
 .navbarContracted{
-    height: 100px;
+    height: 140px;
     display:inline-block;
     justify-content: center;
 }
