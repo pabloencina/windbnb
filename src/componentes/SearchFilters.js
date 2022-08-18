@@ -16,14 +16,14 @@ export default function SearchFilters({
     userSearchFilters.location
   );
   const [guestsValue, setGuestsValue] = React.useState(
-    userSearchFilters.guests
+    userSearchFilters.guests 
   );
   return (
     <div id="contenedorInp">
       <Box className="contenedorAutocompletar">
         <Autocomplete
           value={locationValue}
-          id="free-solo-demo"
+          id="input-location"
           Location
           options={allLocations}
           getOptionLabel={(option) => `${option.city}, ${option.country}`}
@@ -58,6 +58,7 @@ export default function SearchFilters({
             InputLabelProps={{
               shrink: true,
             }}
+            InputProps={{ inputProps: { min: 1, max: 10 } }}
             onChange={(event) => {
               setGuestsValue(event.target.value);
               setUserSearchFilters({
