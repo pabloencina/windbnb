@@ -9,7 +9,7 @@ const Title = ({locationSearch}) => {
     variant="h5"
     align="center"
     color="text.secondary">
-    City of {locationSearch.city}, {locationSearch.country}
+  City of {locationSearch.city}, {locationSearch.country}
     </Typography>
   );
 };

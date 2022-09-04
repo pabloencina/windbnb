@@ -53,8 +53,8 @@ export default function Album() {
   getAllStays();
 
   const [locationSearch, setLocationSearch] = useState({
-    city: "",
-    country: "",
+    city: "Helsinki",
+    country: "Finland",
   });
   const [staysFound, setStaysFound] = useState(getAllStays());
 
