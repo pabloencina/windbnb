@@ -12,8 +12,7 @@ import "../styles-css/SearchFilters.css";
 import SearchLabels from "./SearchLabels";
 
 
-export default function SearchAppBar() {
-
+export default function SearchAppBar({locationSearch, setLocationSearch, staysFound, setStaysFound}) {
   const allLocations = getAllLocations();
   const [expanded, setExpanded] = useState(false);
 
@@ -43,7 +42,7 @@ export default function SearchAppBar() {
           <SearchLabels userSearchFilters={userSearchFilters}></SearchLabels>
         )}
 
-        <SearchButton expanded={expanded} setExpanded={setExpanded}/>
+        <SearchButton expanded={expanded} setExpanded={setExpanded} locationSearch={locationSearch} setLocationSearch={setLocationSearch} staysFound={staysFound} setStaysFound={setStaysFound} location={userSearchFilters.location}/>
       </Toolbar>
     </AppBar>
   );

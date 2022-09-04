@@ -13,7 +13,7 @@ import Typography from "@mui/material/Typography";
 import * as React from "react";
 import { FaStar } from "react-icons/fa";
 import SuperHost from "./SuperHosts";
-import { getAllStays, getStaysByLocation } from "../data/data-manager";
+import { getAllStays } from "../data/data-manager";
 import "../styles-css/Album.css";
 import "../styles-css/SearchFilters.css";
 import SearchAppBar from "./SearchAppBar";
@@ -50,23 +50,18 @@ const theme = createTheme({
 
 // export default function Album({ userSearchFilters, setUserSearchFilters }) {
 export default function Album() {
-  const allStays = getAllStays();
-  const staysByLoc = getStaysByLocation({
-    city: 'Helsinki',
-    country: 'Finland'
-  });
-/*
+   getAllStays();
+
   const [ locationSearch, setLocationSearch ] = useState({
     city: '',
     country: ''
   })
-  const  [ staysFound, setStaysFound ] = useState(getAllStays())*/
-  // locationSearched, staysFound
-  // console.log(staysByLoc);
+  const  [ staysFound, setStaysFound ] = useState(getAllStays())
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <SearchAppBar></SearchAppBar>
+      <SearchAppBar locationSearch={locationSearch} setLocationSearch={setLocationSearch} staysFound={staysFound} setStaysFound={setStaysFound}></SearchAppBar>
       <main>
         {/* Hero unit */}
         <Box
@@ -77,7 +72,7 @@ export default function Album() {
           }}
         >
           <Container maxWidth="sm">
-            <Title userSearchFilters={null}></Title>
+            <Title userSearchFilters={locationSearch}></Title>
             <Stack
               sx={{ pt: 4 }}
               direction="row"
@@ -89,7 +84,7 @@ export default function Album() {
         <Container sx={{ py: 8 }} className="container-general">
           {/* End hero unit */}
           <Grid container spacing={4}>
-            {allStays.map((elem) => (
+            {staysFound.map((elem) => (
               <Grid item key={elem.id} xs={12} sm={6} md={4}>
                 <Card
                   sx={{
