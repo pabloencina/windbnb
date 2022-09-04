@@ -1,7 +1,7 @@
 import * as React from "react";
 import Stack from "@mui/material/Stack";
 import "../data/data";
-import "../estilos-css/SuperHosts.css";
+import "../styles-css/SuperHosts.css";
 
 export default function SuperHost({ visibility }) {
   if (visibility){

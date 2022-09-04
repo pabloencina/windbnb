@@ -1,5 +1,5 @@
 import React from "react";
-import "../estilos-css/NumberOfGuests.css";
+import "../styles-css/NumberOfGuests.css";
 import { useState } from "react";
 import DoDisturbAltOutlinedIcon from "@mui/icons-material/DoDisturbAltOutlined";
 

@@ -3,12 +3,12 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
 import { useState } from "react";
-import SearchButton from "../componentes/SearchButton";
-import SearchFilters from "../componentes/SearchFilters";
+import SearchButton from "./SearchButton";
+import SearchFilters from "./SearchFilters";
 import { getAllLocations } from "../data/data-manager";
-import "../estilos-css/Album.css";
-import "../estilos-css/SearchAppBar.css";
-import "../estilos-css/SearchFilters.css";
+import "../styles-css/Album.css";
+import "../styles-css/SearchAppBar.css";
+import "../styles-css/SearchFilters.css";
 import SearchLabels from "./SearchLabels";
 
 
@@ -43,8 +43,10 @@ export default function SearchAppBar() {
           <SearchLabels userSearchFilters={userSearchFilters}></SearchLabels>
         )}
 
-        <SearchButton expanded={expanded} setExpanded={setExpanded} />
+        <SearchButton expanded={expanded} setExpanded={setExpanded}/>
       </Toolbar>
     </AppBar>
   );
 }
+
+// locationSearch={locationSearch} setLocationSearch={setLocationSearch} staysFound={staysFound} setStaysFound={setStaysFound}

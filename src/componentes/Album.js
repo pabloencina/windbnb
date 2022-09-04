@@ -12,12 +12,14 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
 import { FaStar } from "react-icons/fa";
-import SuperHost from "../componentes/SuperHosts";
-import { getAllStays } from "../data/data-manager";
-import "../estilos-css/Album.css";
-import "../estilos-css/SearchFilters.css";
+import SuperHost from "./SuperHosts";
+import { getAllStays, getStaysByLocation } from "../data/data-manager";
+import "../styles-css/Album.css";
+import "../styles-css/SearchFilters.css";
 import SearchAppBar from "./SearchAppBar";
 import Title from "./Title";
+import { useState } from "react";
+
 //import SearchLabels from "./SearchLabels";
 
 function Copyright() {
@@ -46,9 +48,21 @@ const theme = createTheme({
   },
 });
 
-export default function Album({userSearchFilters}) {
+// export default function Album({ userSearchFilters, setUserSearchFilters }) {
+export default function Album() {
   const allStays = getAllStays();
-
+  const staysByLoc = getStaysByLocation({
+    city: 'Helsinki',
+    country: 'Finland'
+  });
+/*
+  const [ locationSearch, setLocationSearch ] = useState({
+    city: '',
+    country: ''
+  })
+  const  [ staysFound, setStaysFound ] = useState(getAllStays())*/
+  // locationSearched, staysFound
+  // console.log(staysByLoc);
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -63,8 +77,7 @@ export default function Album({userSearchFilters}) {
           }}
         >
           <Container maxWidth="sm">
-          
-            <Title userSearchFilters={userSearchFilters}></Title>
+            <Title userSearchFilters={null}></Title>
             <Stack
               sx={{ pt: 4 }}
               direction="row"
@@ -73,7 +86,7 @@ export default function Album({userSearchFilters}) {
             ></Stack>
           </Container>
         </Box>
-        <Container sx={{ py: 8 }} className="contenedor">
+        <Container sx={{ py: 8 }} className="container-general">
           {/* End hero unit */}
           <Grid container spacing={4}>
             {allStays.map((elem) => (
@@ -94,7 +107,7 @@ export default function Album({userSearchFilters}) {
                       pt: "0%",
                     }}
                     image={elem.photo}
-                    alt="imagenes"
+                    alt="images"
                   />
                   <CardContent sx={{ flexGrow: 1 }}>
                     <SuperHost visibility={elem.superHost} />
@@ -108,7 +121,7 @@ export default function Album({userSearchFilters}) {
                       <FaStar className="icons"></FaStar>
                       {elem.rating}
                     </Typography>
-                    <Typography className="titleElemnt">
+                    <Typography className="title-element">
                       {elem.title}
                     </Typography>
                   </CardContent>

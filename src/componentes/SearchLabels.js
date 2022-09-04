@@ -1,8 +1,8 @@
 import { Box } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import * as React from "react";
-import "../estilos-css/SearchFilters.css";
-import "../estilos-css/SearchLabels.css"
+import "../styles-css/SearchFilters.css";
+import "../styles-css/SearchLabels.css"
 
 
 export default function SearchLabels({ userSearchFilters }) {
@@ -27,7 +27,6 @@ export default function SearchLabels({ userSearchFilters }) {
           }}
           disabled={true}
         />
-        
       </Box>
     </div>
   );

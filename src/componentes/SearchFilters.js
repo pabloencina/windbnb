@@ -4,8 +4,7 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import * as React from "react";
 import { getAllLocations } from "../data/data-manager";
-import "../estilos-css/SearchFilters.css";
-
+import "../styles-css/SearchFilters.css";
 
 export default function SearchFilters({
   userSearchFilters,
@@ -16,11 +15,11 @@ export default function SearchFilters({
     userSearchFilters.location
   );
   const [guestsValue, setGuestsValue] = React.useState(
-    userSearchFilters.guests 
+    userSearchFilters.guests
   );
   return (
-    <div id="contenedorInp">
-      <Box className="contenedorAutocompletar">
+    <div id="container-input">
+      <Box className="container-autocomplete">
         <Autocomplete
           value={locationValue}
           id="input-location"
@@ -38,7 +37,7 @@ export default function SearchFilters({
             </Box>
           )}
           renderInput={(params) => (
-            <TextField {...params} label="Location" className="autoCompletar" />
+            <TextField {...params} label="Location" className="autocomplete" />
           )}
           onChange={(event, newValue) => {
             setLocationValue(newValue);
@@ -48,26 +47,24 @@ export default function SearchFilters({
             });
           }}
         />
-        
-          <TextField
-            id="standard-number"
-            className="autoCompletarGuests"
-            label="Guests"
-            type="number"
-            value={guestsValue}
-            InputLabelProps={{
-              shrink: true,
-            }}
-            InputProps={{ inputProps: { min: 1, max: 10 } }}
-            onChange={(event) => {
-              setGuestsValue(event.target.value);
-              setUserSearchFilters({
-                ...userSearchFilters,
-                guests: event.target.value,
-              });
-            }}
-          />
-
+        <TextField
+          id="standard-number"
+          className="autoComplete-guests"
+          label="Guests"
+          type="number"
+          value={guestsValue}
+          InputLabelProps={{
+            shrink: true,
+          }}
+          InputProps={{ inputProps: { min: 1, max: 10 } }}
+          onChange={(event) => {
+            setGuestsValue(event.target.value);
+            setUserSearchFilters({
+              ...userSearchFilters,
+              guests: event.target.value,
+            });
+          }}
+        />
       </Box>
     </div>
   );

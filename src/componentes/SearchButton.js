@@ -1,8 +1,8 @@
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import React, { useState } from "react";
-import "../estilos-css/SearchButton.css";
+import "../styles-css/SearchButton.css";
 
-const SearchButton = ({ expanded, setExpanded }) => {
+const SearchButton = ({ expanded, setExpanded, locationSearch, setLocationSearch, staysFound, setStaysFound  }) => {
   const [style, setStyle] = useState("btnSearchContracted");
   const [buttonText, setButtonText] = useState("");
 
@@ -11,7 +11,6 @@ const SearchButton = ({ expanded, setExpanded }) => {
       setExpanded(false);
       setStyle("btnSearchContracted");
       setButtonText("");
-      
     } else {
       setExpanded(true);
       setStyle("btnSearchExpanded");
