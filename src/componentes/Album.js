@@ -50,18 +50,23 @@ const theme = createTheme({
 
 // export default function Album({ userSearchFilters, setUserSearchFilters }) {
 export default function Album() {
-   getAllStays();
+  getAllStays();
 
-  const [ locationSearch, setLocationSearch ] = useState({
-    city: '',
-    country: ''
-  })
-  const  [ staysFound, setStaysFound ] = useState(getAllStays())
+  const [locationSearch, setLocationSearch] = useState({
+    city: "",
+    country: "",
+  });
+  const [staysFound, setStaysFound] = useState(getAllStays());
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <SearchAppBar locationSearch={locationSearch} setLocationSearch={setLocationSearch} staysFound={staysFound} setStaysFound={setStaysFound}></SearchAppBar>
+      <SearchAppBar
+        locationSearch={locationSearch}
+        setLocationSearch={setLocationSearch}
+        staysFound={staysFound}
+        setStaysFound={setStaysFound}
+      ></SearchAppBar>
       <main>
         {/* Hero unit */}
         <Box
@@ -72,7 +77,7 @@ export default function Album() {
           }}
         >
           <Container maxWidth="sm">
-            <Title userSearchFilters={locationSearch}></Title>
+            <Title locationSearch={locationSearch}/>
             <Stack
               sx={{ pt: 4 }}
               direction="row"

@@ -2,12 +2,11 @@ import { Box } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import * as React from "react";
 import "../styles-css/SearchFilters.css";
-import "../styles-css/SearchLabels.css"
-
+import "../styles-css/SearchLabels.css";
 
 export default function SearchLabels({ userSearchFilters }) {
   return (
-    <div id="contenedorInp">
+    <div id="container-input">
       <Box spacing={2} className="box-container-input">
         <TextField
           id="location-search-label"
@@ -31,12 +30,3 @@ export default function SearchLabels({ userSearchFilters }) {
     </div>
   );
 }
-
-
-/*
-<TextField
-          label="Guests"
-          value={userSearchFilters.guests}
-          disabled={true}
-        />
-*/

@@ -6,9 +6,7 @@ import { getStaysByLocation } from "../data/data-manager";
 const SearchButton = ({
   expanded,
   setExpanded,
-  locationSearch,
   setLocationSearch,
-  staysFound,
   setStaysFound,
   location,
 }) => {

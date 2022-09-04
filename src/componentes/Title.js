@@ -1,13 +1,15 @@
 import React from "react";
 import Typography from "@mui/material/Typography";
+//import { Stack } from "@mui/material";
 
-const Title = () => {
+const Title = ({locationSearch}) => {
+  console.log({locationSearch})
   return (
     <Typography
     variant="h5"
     align="center"
     color="text.secondary">
-      Stay Buenos Aires
+    City of {locationSearch.city}, {locationSearch.country}
     </Typography>
   );
 };
